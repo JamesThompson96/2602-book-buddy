@@ -19,23 +19,20 @@ export default function BookDetails() {
           return;
         }
         setBook(data);
-      } catch (err) {
+      } catch (e) {
         setError("Failed to fetch book details.");
-        console.error(err);
+        console.error(e);
       }
     };
     syncBook();
   }, [id]);
 
-  // Handle error states cleanly
   if (error) return <p style={{ color: "red" }}>{error}</p>;
 
-  // Safely wait until the book state is populated
   if (!book) return <p>Loading book details...</p>;
 
   return (
     <article>
-      {/* 💡 Note: If the API properties are lowercase, adjust these to match (e.g., book.title, book.author) */}
       <h1>{book.title || book.name}</h1>
       <h3>By {book.author}</h3>
       <p>{book.description}</p>
