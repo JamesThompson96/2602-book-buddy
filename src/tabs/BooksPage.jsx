@@ -13,15 +13,15 @@ export default function BooksPage() {
     const data = await getBooks();
     setBooks(data);
   };
+
+  useEffect(() => {
+    syncBooks();
+  }, []);
+
+  return (
+    <>
+      <h1>Catalog</h1>
+      <BookList books={books} />
+    </>
+  );
 }
-
-useEffect(() => {
-  syncBooks();
-}, []);
-
-return (
-  <>
-    <h1>Catalog</h1>
-    <BookList books={books} />
-  </>
-);
