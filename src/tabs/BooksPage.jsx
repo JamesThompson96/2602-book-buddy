@@ -10,24 +10,18 @@ export default function BooksPage() {
   const [books, setBooks] = useState([]);
 
   const syncBooks = async () => {
-    try {
-      console.log("1. syncBooks is running...");
-      const data = await getBooks();
-      console.log("2. Data returned from getBooks:", data);
-      setBooks(data);
-    } catch (e) {
-      console.error("3. error inside syncBooks:", error);
-    }
+    const data = await getBooks();
+    setBooks(data);
   };
-
-  useEffect(() => {
-    syncBooks();
-  }, []);
-
-  return (
-    <>
-      <h1>Catalog</h1>
-      <BookList books={books} />
-    </>
-  );
 }
+
+useEffect(() => {
+  syncBooks();
+}, []);
+
+return (
+  <>
+    <h1>Catalog</h1>
+    <BookList books={books} />
+  </>
+);
