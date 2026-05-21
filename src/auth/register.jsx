@@ -43,7 +43,7 @@ export default function Register() {
         </label>
         <label>
           Password
-          <input type="text" name="password" required />
+          <input type="password" name="password" required />
         </label>
         <button>Register</button>
         {error && <p role="alert">{error}</p>}

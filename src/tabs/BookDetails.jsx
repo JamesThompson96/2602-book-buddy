@@ -33,10 +33,9 @@ export default function BookDetails() {
 
   return (
     <article>
-      <h1>{book.title || book.name}</h1>
+      <h1>{book.title}</h1>
       <h3>By {book.author}</h3>
       <p>{book.description}</p>
-
       {book.coverimage && (
         <img
           src={book.coverimage}
@@ -44,6 +43,12 @@ export default function BookDetails() {
           width="200"
         />
       )}
+      {token &&
+        (book.available ? (
+          <button>Reserve book</button>
+        ) : (
+          <button disabled>Book is already reserved</button>
+        ))}
     </article>
   );
 }

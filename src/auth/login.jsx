@@ -32,7 +32,7 @@ export default function Login() {
         </label>
         <label>
           Password
-          <input type="text" name="password" required />
+          <input type="password" name="password" required />
         </label>
         <button>Login</button>
         {error && <p role="alert">{error}</p>}

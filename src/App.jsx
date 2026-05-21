@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import BooksPage from "./tabs/BooksPage";
 import BookDetails from "./tabs/BookDetails";
 import Error404 from "./Error404";
+import Account from "./auth/account";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="/books/:id" element={<BookDetails />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/account" element={<Account />} />
         <Route path="*" element={<Error404 />} />
       </Route>
     </Routes>

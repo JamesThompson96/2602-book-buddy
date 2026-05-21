@@ -15,7 +15,7 @@ export async function getBooks() {
     }
 
     const result = await response.json();
-    return result.books || [];
+    return result || [];
   } catch (e) {
     console.error("Fetch failed in getBooks:", e);
     return [];
@@ -49,7 +49,7 @@ export async function deleteReservation(token, id) {
     throw Error("You must be signed in to return reservation.");
   }
 
-  const response = await fetch(API + "/books/" + id, {
+  const response = await fetch(API + "/reservations/" + id, {
     method: "DELETE",
     headers: { Authorization: "Bearer " + token },
   });
